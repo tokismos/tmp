@@ -1,15 +1,28 @@
+import { Link, NavLink } from "react-router-dom"
+
 export const Header = () => {
-  const items = ["home", "add", "profile"]
+  const items = ["home", "add", "profile/mohammed"]
 
   const ItemList = ({ item }) => {
-    return <div>{item}</div>
+    return (
+      <NavLink
+        to={item}
+        className={({ isActive }) => (isActive ? "bg-white" : "")}
+      >
+        {item}
+      </NavLink>
+    )
   }
 
   return (
-    <div className="bg-red-600 w-full gap-7 flex">
-      {items.map((item, index) => (
-        <ItemList item={item} key={index} />
-      ))}
-    </div>
+    <nav className="justify-center bg-red-800 items-center flex  ">
+      <ul className="gap-7 flex p-4">
+        {items.map((item, index) => (
+          <li>
+            <ItemList item={item} key={index} />
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
