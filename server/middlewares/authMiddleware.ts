@@ -12,9 +12,8 @@ export const authMiddleware: RequestHandler = (req, res, next) => {
     if (token !== "aaaa") {
       res.status(401).json({ message: "Token is invalid" })
     }
+    next()
   } catch (error) {
     res.status(500).json({ message: "authentificaiton faield" })
   }
-
-  next()
 }
