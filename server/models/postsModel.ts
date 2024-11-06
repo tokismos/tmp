@@ -73,6 +73,7 @@ export const updatePostById = async (
     data: updatedPost,
   })
 }
+
 export const createNewPost = async (postData: Omit<Post, "id">) => {
   // const newPost: Post = {
   //   id: uuidv4(),

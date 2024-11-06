@@ -5,8 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from "./App.tsx"
 import ErrorPage from "./error-page.tsx"
 import { Add } from "./components/Add.tsx"
-import { getProfile, Profile } from "./components/Profile.tsx"
+import { Profile } from "./components/Profile.tsx"
 import { Home } from "./components/Home.tsx"
+import { ProtectedRoute } from "./components/ProtectedRoute.tsx"
+import { Toaster } from "./components/ui/toaster.tsx"
 
 const router = createBrowserRouter([
   {
@@ -20,16 +22,24 @@ const router = createBrowserRouter([
           console.log("ha request", (await request.formData()).get("name"))
           return null
         },
-        element: <Add />,
+        element: (
+          <ProtectedRoute>
+            <Add />
+          </ProtectedRoute>
+        ),
       },
       {
-        path: "profile/:name",
-        loader: async ({ params }) => await getProfile(params.name),
+        path: "profile",
+        // loader: async ({ params }) => await getProfile(params.name),
         element: <Profile />,
       },
       {
         path: "home",
-        element: <Home />,
+        element: (
+          // <ProtectedRoute>
+          <Home />
+          // </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -37,5 +47,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </StrictMode>
 )

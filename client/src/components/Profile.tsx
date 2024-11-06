@@ -1,20 +1,13 @@
-import React from "react"
-import {
-  useLoaderData,
-  useNavigation,
-  useParams,
-  useSearchParams,
-} from "react-router-dom"
-
-export const getProfile = (value) => {
-  return new Promise((resolve, rej) => setTimeout(() => resolve(value), 3000))
-}
+import { useAuth } from "@/hooks/useAuth"
+import { useParams } from "react-router-dom"
+import { Button } from "./ui/button"
 
 export const Profile = () => {
-  const { name } = useParams()
-  console.log("navigation", name)
-
-  //   if (navigation.state === "loading") return <div>LOADING....</div>
-
-  return <div>Hello {name}</div>
+  const { user, signOut } = useAuth()
+  return (
+    <div>
+      You are Logged as {user}
+      <Button onClick={signOut}>Log out</Button>
+    </div>
+  )
 }
