@@ -1,8 +1,6 @@
-import { log } from "console"
 import { Post } from "../types"
 import { v4 as uuidv4 } from "uuid"
 import { db } from "../prisma/client"
-import { NewLineKind } from "typescript"
 
 // let posts: Post[] = [
 //   {

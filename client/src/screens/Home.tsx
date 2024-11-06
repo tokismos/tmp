@@ -1,6 +1,5 @@
 import { useGetPosts } from "@/hooks/useGetPosts"
-import { PostList } from "./PostsList"
-import { SignIn } from "./SignIn"
+import { PostList } from "../components/PostsList"
 
 export const Home = () => {
   const { data: posts, isLoading, error } = useGetPosts()

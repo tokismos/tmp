@@ -1,6 +1,5 @@
 import { useAuth } from "@/hooks/useAuth"
-import { useParams } from "react-router-dom"
-import { Button } from "./ui/button"
+import { Button } from "../components/ui/button"
 
 export const Profile = () => {
   const { user, signOut } = useAuth()

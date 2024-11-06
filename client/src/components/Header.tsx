@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export const Header = () => {
   const items = ["home", "add", "profile"]
 
-  const ItemList = ({ item }) => {
+  const ItemList = ({ item }: any) => {
     return (
       <NavLink
         to={item}

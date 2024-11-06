@@ -4,9 +4,9 @@ import "./index.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from "./App.tsx"
 import ErrorPage from "./error-page.tsx"
-import { Add } from "./components/Add.tsx"
-import { Profile } from "./components/Profile.tsx"
-import { Home } from "./components/Home.tsx"
+import { Add } from "./screens/Add.tsx"
+import { Profile } from "./screens/Profile.tsx"
+import { Home } from "./screens/Home.tsx"
 import { ProtectedRoute } from "./components/ProtectedRoute.tsx"
 import { Toaster } from "./components/ui/toaster.tsx"
 
@@ -18,10 +18,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "add",
-        action: async ({ request }) => {
-          console.log("ha request", (await request.formData()).get("name"))
-          return null
-        },
+        // action: async ({ request }) => {
+        //   console.log("ha request", (await request.formData()).get("name"))
+        //   return null
+        // },
         element: (
           <ProtectedRoute>
             <Add />
@@ -35,11 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "home",
-        element: (
-          // <ProtectedRoute>
-          <Home />
-          // </ProtectedRoute>
-        ),
+        element: <Home />,
       },
     ],
   },
